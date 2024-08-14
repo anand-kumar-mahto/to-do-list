@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-theme">
+
+    <div id="auth">
+        <h1 id="auth-title">Login</h1>
+        <form id="auth-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Password" required>
+
+            <div id="security-question" style="display: none;">
+                <label for="security-answer">Security Question: What is your pet's name?</label>
+                <input type="text" id="security-answer">
+            </div>
+
+            <button type="submit" id="auth-submit">Login</button>
+            <button type="button" id="toggle-auth">Switch to Sign Up</button>
+            <button type="button" id="forgot-password">Forgot Password</button>
+        </form>
+    </div>
+
+    <div id="todo" style="display: none;">
+        <button id="logout">Logout</button>
+        <h1>Task Manager</h1>
+
+        <div id="customize" class="section">
+            <h2>Customize</h2>
+            <label for="theme-select">Select Theme:</label>
+            <select id="theme-select">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+                <option value="solarized-light">Solarized Light</option>
+                <option value="solarized-dark">Solarized Dark</option>
+                <option value="dracula">Dracula</option>
+            </select>
+        </div>
+
+        <form id="task-form">
+            <label for="task-input">Task Title:</label>
+            <input type="text" id="task-input" placeholder="Task Title" required>
+
+            <label for="task-date">Due Date:</label>
+            <input type="date" id="task-date">
+
+            <label for="task-time">Time:</label>
+            <input type="time" id="task-time">
+
+            <label for="task-priority">Priority:</label>
+            <select id="task-priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+
+            <label for="task-reminder">Reminder:</label>
+            <input type="text" id="task-reminder" placeholder="Reminder">
+
+            <button type="submit">Add Task</button>
+        </form>
+
+        <button type="button" id="filter-completed">Show Completed</button>
+        <button type="button" id="filter-pending">Show Pending</button>
+
+        <button type="button" id="backup-data">Backup Data</button>
+        <button type="button" id="restore-data">Restore Data</button>
+
+        <ul id="task-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

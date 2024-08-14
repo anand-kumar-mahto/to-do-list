@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+:root {
+    --background-color-light: #ffffff;
+    --text-color-light: #333333;
+
+    --background-color-dark: #1e1e1e;
+    --text-color-dark: #e0e0e0;
+
+    --background-color-solarized-light: #fdf6e3;
+    --text-color-solarized-light: #586e75;
+
+    --background-color-solarized-dark: #002b36;
+    --text-color-solarized-dark: #93a1a1;
+
+    --background-color-dracula: #282a36;
+    --text-color-dracula: #f8f8f2;
+
+    --primary-color: #0056b3;
+    --primary-hover: #003f8a;
+    --secondary-color: #198754;
+    --secondary-hover: #146c43;
+    --danger-color: #dc3545;
+    --danger-hover: #b02a37;
+
+    --task-item-bg-light: #f8f9fa;
+    --task-item-bg-dark: #2c2c2c;
+    --task-item-bg-solarized-light: #eee8d5;
+    --task-item-bg-solarized-dark: #073642;
+    --task-item-bg-dracula: #44475a;
+
+    --task-item-text-light: #212529;
+    --task-item-text-dark: #e9ecef;
+    --task-item-text-solarized-light: #657b83;
+    --task-item-text-solarized-dark: #839496;
+    --task-item-text-dracula: #f8f8f2;
+}
+
+body.light-theme {
+    --background-color: var(--background-color-light);
+    --text-color: var(--text-color-light);
+    --task-item-bg: var(--task-item-bg-light);
+    --task-item-text: var(--task-item-text-light);
+}
+
+body.dark-theme {
+    --background-color: var(--background-color-dark);
+    --text-color: var(--text-color-dark);
+    --task-item-bg: var(--task-item-bg-dark);
+    --task-item-text: var(--task-item-text-dark);
+}
+
+body.solarized-light-theme {
+    --background-color: var(--background-color-solarized-light);
+    --text-color: var(--text-color-solarized-light);
+    --task-item-bg: var(--task-item-bg-solarized-light);
+    --task-item-text: var(--task-item-text-solarized-light);
+}
+
+body.solarized-dark-theme {
+    --background-color: var(--background-color-solarized-dark);
+    --text-color: var(--text-color-solarized-dark);
+    --task-item-bg: var(--task-item-bg-solarized-dark);
+    --task-item-text: var(--task-item-text-solarized-dark);
+}
+
+body.dracula-theme {
+    --background-color: var(--background-color-dracula);
+    --text-color: var(--text-color-dracula);
+    --task-item-bg: var(--task-item-bg-dracula);
+    --task-item-text: var(--task-item-text-dracula);
+}
+
+#auth, #todo {
+    background: var(--task-item-bg);
+    color: var(--text-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form, #customize {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select, button {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: var(--task-item-bg);
+    color: var(--task-item-text);
+}
+
+input:focus, select:focus, button:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.25);
+}
+
+button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: var(--primary-hover);
+}
+
+button.secondary {
+    background: var(--secondary-color);
+}
+
+button.secondary:hover {
+    background: var(--secondary-hover);
+}
+
+button.danger {
+    background: var(--danger-color);
+}
+
+button.danger:hover {
+    background: var(--danger-hover);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background: var(--task-item-bg);
+    color: var(--task-item-text);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+li .task-details {
+    flex: 1;
+}
+
+li .task-priority {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+li .task-due {
+    color: #888;
+    margin-top: 5px;
+}
+
+@media (max-width: 600px) {
+    input[type="date"], input[type="time"], input[type="datetime-local"] {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    select, button {
+        width: 100%;
+    }
+
+    #auth, #todo {
+        max-width: 100%;
+        padding: 15px;
+    }
+}
+
+#backup-data, #restore-data {
+    margin-top: 20px;
+}
